@@ -1,9 +1,9 @@
-import { useParams } from "next/navigation";
 interface Blog { 
     "slug" : string,
     "title" : string,
     "content" : string
 }
+
 export default async function Blog({ params } : {params: {slug : string}}) { 
     const blogContent = await fetch("https://wdcc-academy-mini-project.vercel.app/api/blogs/" + params.slug);
     const res = (await blogContent.json()) as Blog;
